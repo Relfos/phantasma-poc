@@ -1,0 +1,11 @@
+HexHelper/
+packages/
+.vs/
+PhantasmaContract/
+PhantasmaLib/bin/
+PhantasmaLib/obj/
+PhantasmaApp/PhantasmaApp.Android/bin/
+PhantasmaApp/PhantasmaApp.Android/obj/
+PhantasmaApp/PhantasmaApp.UWP/bin/
+PhantasmaApp/PhantasmaApp.UWP/obj/
+PhantasmaApp/PhantasmaApp.iOS/obj/
