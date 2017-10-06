@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using PhantasmaApp.Helpers;
 using PhantasmaApp.Models;
 using PhantasmaApp.Views;
+using PhantasmaApp.Services;
 
 using Xamarin.Forms;
 
@@ -12,12 +13,19 @@ namespace PhantasmaApp.ViewModels
 {
 	public class ItemsViewModel : BaseViewModel
 	{
-		public ObservableRangeCollection<Item> Items { get; set; }
+        /// <summary>
+        /// Get the azure service instance
+        /// </summary>
+        public DataStore Store { get; private set; }
+
+        public ObservableRangeCollection<Item> Items { get; set; }
 		public Command LoadItemsCommand { get; set; }
 
-		public ItemsViewModel()
-		{
-			Title = "Browse";
+		public ItemsViewModel(string filter)
+        {
+            Store = new DataStore(filter);
+
+            Title = filter;
 			Items = new ObservableRangeCollection<Item>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -25,7 +33,7 @@ namespace PhantasmaApp.ViewModels
 			{
 				var _item = item as Item;
 				Items.Add(_item);
-				await DataStore.AddItemAsync(_item);
+				await Store.AddItemAsync(_item);
 			});
 		}
 
@@ -39,7 +47,7 @@ namespace PhantasmaApp.ViewModels
 			try
 			{
 				Items.Clear();
-				var items = await DataStore.GetItemsAsync(true);
+				var items = await Store.GetItemsAsync(true);
 				Items.ReplaceRange(items);
 			}
 			catch (Exception ex)

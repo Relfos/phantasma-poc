@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Utility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseDataObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
@@ -36,8 +37,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\ObservableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\ObservableRangeCollection.cs" />
@@ -52,8 +52,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
   </ItemGroup>
 </Project>

@@ -11,12 +11,17 @@ namespace PhantasmaApp.Views
 	{
 		ItemsViewModel viewModel;
 
-		public ItemsPage()
-		{
-			InitializeComponent();
+        public string filter { get; private set; }
 
-			BindingContext = viewModel = new ItemsViewModel();
-		}
+		public ItemsPage(string filter)
+		{
+            this.filter = filter;
+
+            InitializeComponent();
+
+            viewModel = new ItemsViewModel(filter);
+            BindingContext = viewModel;
+        }
 
 		async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
@@ -40,7 +45,9 @@ namespace PhantasmaApp.Views
 			base.OnAppearing();
 
 			if (viewModel.Items.Count == 0)
-				viewModel.LoadItemsCommand.Execute(null);
-		}
+            {
+                viewModel.LoadItemsCommand.Execute(null);
+            }
+        }
 	}
 }

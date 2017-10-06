@@ -15,7 +15,8 @@
     <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
       <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
         <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-          <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64"/>
+                    <Image Source="phantasma_logo.png"  VerticalOptions="Center" HeightRequest="64"/>
+           
         </ContentView>
       </StackLayout>
     </StackLayout>
@@ -25,7 +26,7 @@
           <Label.FormattedText>
             <FormattedString>
               <FormattedString.Spans>
-                <Span Text="Phantasma Mail" FontAttributes="Bold" FontSize="22"/>
+                <Span Text="Phantasma" FontAttributes="Bold" FontSize="22"/>
                 <Span Text=" "/>
                 <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}"/>
               </FormattedString.Spans>

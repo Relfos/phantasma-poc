@@ -4,7 +4,9 @@
              x:Class="PhantasmaApp.Views.ItemDetailPage"
              Title="{Binding Title}">
 	<StackLayout Spacing="20" Padding="15">
-		<Label Text="{Binding Item.Text}" FontSize="Medium"/>
-        <Label Text="{Binding Item.Description}" FontSize="Small"/>
+        <Label Text="{Binding Item.Author}" FontSize="Medium"/>
+        <Label Text="{Binding Item.Author}" FontSize="Small" TextColor="Gray"/>
+        <Label Text="{Binding Item.Title}" FontSize="Medium" />
+        <Label Text="{Binding Item.Content}" FontSize="Small"/>
     </StackLayout>
 </ContentPage>

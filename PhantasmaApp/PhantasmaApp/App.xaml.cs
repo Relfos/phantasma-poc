@@ -15,22 +15,23 @@ namespace PhantasmaApp
 			SetMainPage();
 		}
 
-		public static void SetMainPage()
+        private static NavigationPage CreateMailTab(string filter)
+        {
+            return new NavigationPage(new ItemsPage(filter))
+            {
+                Title = filter,
+                Icon = Device.OnPlatform("tab_feed.png", null, null)
+            };
+        }
+
+        public static void SetMainPage()
 		{
             Current.MainPage = new TabbedPage
             {
                 Children =
                 {
-                    new NavigationPage(new ItemsPage())
-                    {
-                        Title = "Inbox",
-                        Icon = Device.OnPlatform("tab_feed.png",null,null)
-                    },
-                    new NavigationPage(new ItemsPage())
-                    {
-                        Title = "Sent",
-                        Icon = Device.OnPlatform("tab_feed.png",null,null)
-                    },
+                    CreateMailTab("Inbox"),
+                    CreateMailTab("Sent"),
                     new NavigationPage(new AboutPage())
                     {
                         Title = "About",

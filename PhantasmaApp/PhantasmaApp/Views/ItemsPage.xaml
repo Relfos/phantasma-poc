@@ -21,24 +21,33 @@
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout Padding="10">
-                                <Label Text="{Binding Author}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="16"/>
-                  
-                                <Label Text="{Binding Time}"
-                        LineBreakMode="NoWrap"
-                        Style="{DynamicResource ListItemTextStyle}"
-                                       TextColor="Gray"
-                        FontSize="13"/>
-                  
-                                <Label Text="{Binding Title}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13"/>
-              </StackLayout>
-            </ViewCell>
+                <StackLayout Padding="10">
+                        <!-- Two-column grid -->
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*" />
+                            <ColumnDefinition Width="50*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <!-- Left column  -->
+                                    <Label Grid.Column="0" Grid.Row="0" Text="{Binding Author}"  Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
+
+                        <!-- Right column-->
+                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Time}"  Style="{DynamicResource ListItemTextStyle}" TextColor="Gray" FontSize="13" HorizontalTextAlignment="End" />
+
+
+                    </Grid>
+
+                                <Label Text="{Binding Title}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
+                </StackLayout>
+
+
+                        </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
