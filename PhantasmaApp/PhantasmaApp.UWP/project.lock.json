@@ -23611,12 +23611,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "D:\\code\\phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\PhantasmaApp.UWP.csproj",
+      "projectUniqueName": "D:\\code\\Phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\PhantasmaApp.UWP.csproj",
       "projectName": "PhantasmaApp.UWP",
-      "projectPath": "D:\\code\\phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\PhantasmaApp.UWP.csproj",
-      "projectJsonPath": "D:\\code\\phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\project.json",
+      "projectPath": "D:\\code\\Phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\PhantasmaApp.UWP.csproj",
+      "projectJsonPath": "D:\\code\\Phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\project.json",
       "packagesPath": "C:\\Users\\Sushi\\.nuget\\packages\\",
-      "outputPath": "D:\\code\\phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\obj\\",
+      "outputPath": "D:\\code\\Phantasma\\PhantasmaApp\\PhantasmaApp.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
         "C:\\Users\\Sushi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -23629,8 +23629,8 @@
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {
-            "D:\\code\\phantasma\\PhantasmaLib\\PhantasmaLib.csproj": {
-              "projectPath": "D:\\code\\phantasma\\PhantasmaLib\\PhantasmaLib.csproj"
+            "D:\\code\\Phantasma\\PhantasmaLib\\PhantasmaLib.csproj": {
+              "projectPath": "D:\\code\\Phantasma\\PhantasmaLib\\PhantasmaLib.csproj"
             }
           }
         }

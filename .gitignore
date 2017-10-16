@@ -9,3 +9,5 @@ PhantasmaApp/PhantasmaApp.Android/obj/
 PhantasmaApp/PhantasmaApp.UWP/bin/
 PhantasmaApp/PhantasmaApp.UWP/obj/
 PhantasmaApp/PhantasmaApp.iOS/obj/
+PhantasmaTests/bin/
+PhantasmaTests/obj/
