@@ -11,3 +11,5 @@ PhantasmaApp/PhantasmaApp.UWP/obj/
 PhantasmaApp/PhantasmaApp.iOS/obj/
 PhantasmaTests/bin/
 PhantasmaTests/obj/
+bin/
+PhantasmaGateway/obj/

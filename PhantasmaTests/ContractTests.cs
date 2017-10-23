@@ -6,6 +6,7 @@ using Neo;
 using Neo.VM;
 using Neo.Cryptography;
 using System.Linq;
+using System.Collections.Generic;
 
 /*
  * DOCS HERE => http://docs.neo.org/en-us/sc/test.html
@@ -32,15 +33,17 @@ namespace PhantasmaTests
             engine.LoadScript(contractBytes);
 
             using (ScriptBuilder sb = new ScriptBuilder())
-            {                       
-                sb.EmitPush("symbol"); 
+            {
+                sb.EmitPush("");
+                sb.EmitPush("symbol");
                 engine.LoadScript(sb.ToArray());
             }
 
             engine.Execute(); // start execution
 
-            var result = engine.EvaluationStack.Peek().GetString(); // set the return value here
+            var result = engine.EvaluationStack.Peek().GetString(); 
             Assert.NotNull(result);
+
             Assert.IsTrue("PHI".Equals(result));
         }
     }
