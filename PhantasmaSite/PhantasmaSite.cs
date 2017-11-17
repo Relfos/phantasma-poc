@@ -131,9 +131,16 @@ namespace Phantasma
             var site = new Site(server, host, "public");
 
             var keys = new Dictionary<string, KeyPair>();
-            keys["bambi@phantasma.io"] = new KeyPair("f0dcac98c86241c165794f33d21b85d270e4efb2de9d86913ca980c1dea03217".HexToBytes());
-            keys["demo@phantasma.io"] = new KeyPair("fc1fa7c0d83426486373d9ce6eaca8adb506fc4ca25e89887c8eb5567f317a53".HexToBytes());
-            keys["rambo@phantasma.io"] = new KeyPair("53019c04be01e505f8935f4ed7d78c8ab6887ee0054f8d4d58d4490f39f45d38".HexToBytes());
+            var lines = File.ReadAllLines(rootPath + "keys.txt");
+            log.Info("Loadking keys...");
+            foreach (var line in lines)
+            {
+                var temp = line.Split(',');
+                var mail = temp[0];
+                var key = temp[1];
+                keys[mail] = new KeyPair(key.HexToBytes());
+            }
+            log.Info($"Loaded {keys.Count} keys!");
 
             log.Info("Initializing mailboxes...");
 
