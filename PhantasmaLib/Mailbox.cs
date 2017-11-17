@@ -90,7 +90,7 @@ namespace PhantasmaMail
             return NeoAPI.CallContract(NeoAPI.Net.Test, keys, Protocol.scriptHash, "sendMessage", new object[] { this.keys.CompressedPublicKey, destName, hash});
         }
 
-        public void Sync(Action<bool> onFinished)
+        public bool SyncMessages()
         {
             if (!string.IsNullOrEmpty(this.name))
             {
@@ -109,12 +109,11 @@ namespace PhantasmaMail
                         }
                     }
 
-                    onFinished(true);
-                    return;
+                    return true;
                 }
             }
 
-            onFinished(false);
+            return false;
         }
 
         private Message FetchMessage(int index)
