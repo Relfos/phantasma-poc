@@ -46,6 +46,8 @@ namespace PhantasmaMail
         {
             var xml = PhantasmaMail.Store.GetFile(hash);
             var root = XMLReader.ReadFromString(xml);
+
+            root = root.FindNode("mail");
             return new Mail(root);
         }
     }

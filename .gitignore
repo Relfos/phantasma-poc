@@ -1,7 +1,6 @@
 HexHelper/
 packages/
 .vs/
-PhantasmaContract/
 PhantasmaLib/bin/
 PhantasmaLib/obj/
 PhantasmaApp/PhantasmaApp.Android/bin/

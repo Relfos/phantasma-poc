@@ -19,7 +19,7 @@ namespace PhantasmaMail
 
             try
             {
-                string path = "/store";
+                string path = "store";
                 Directory.CreateDirectory(path);
 
                 var names = Directory.GetFiles(path, "*.mail");
@@ -45,7 +45,7 @@ namespace PhantasmaMail
 
             foreach (var file in _files)
             {
-                File.WriteAllText("/store/"+file.Key + ".mail", file.Value);
+                File.WriteAllText("store/"+file.Key + ".mail", file.Value);
             }
         }
                 
@@ -67,7 +67,7 @@ namespace PhantasmaMail
 
             _files[hash] = content;
 
-            File.WriteAllText("/store/" + hash + ".mail", content);
+            File.WriteAllText("store/" + hash + ".mail", content);
         }
 
         public static string CreateFile(string content)

@@ -100,6 +100,8 @@ namespace PhantasmaMail
                 if (invoke.result is byte[])
                 {
                     var count = new BigInteger((byte[])invoke.result);
+
+                    _messages.Clear();
                     for (int i = 1; i<= count; i++)
                     {
                         var msg = FetchMessage(i);
