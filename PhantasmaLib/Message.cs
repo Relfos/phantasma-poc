@@ -45,10 +45,15 @@ namespace PhantasmaMail
         public static Message FromHash(string hash)
         {
             var xml = PhantasmaMail.Store.GetFile(hash);
-            var root = XMLReader.ReadFromString(xml);
+            if (xml != null)
+            {
+                var root = XMLReader.ReadFromString(xml);
 
-            root = root.FindNode("mail");
-            return new Mail(root);
+                root = root.FindNode("mail");
+                return new Mail(root);
+            }
+
+            return null;
         }
     }
 
