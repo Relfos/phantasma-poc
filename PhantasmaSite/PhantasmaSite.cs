@@ -445,7 +445,7 @@ namespace Phantasma
                 return Encoding.UTF8.GetBytes(content);
             });
 
-            #region EMAIL THREAD
+            #region EMAIL SYNC THREAD
             log.Info("Running email thread");
 
             var emailThread = new Thread(() =>
@@ -484,7 +484,7 @@ namespace Phantasma
                         }
                     }
 
-                    var delay = (int)(TimeSpan.FromMinutes(1).TotalMilliseconds);
+                    var delay = (int)(TimeSpan.FromSeconds(5).TotalMilliseconds);
                     Thread.Sleep(delay);
                 } while (true);
             });

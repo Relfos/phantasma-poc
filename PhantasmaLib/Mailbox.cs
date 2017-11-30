@@ -90,10 +90,19 @@ namespace PhantasmaMail
             return NeoAPI.CallContract(NeoAPI.Net.Test, keys, Protocol.scriptHash, "sendMessage", new object[] { this.keys.CompressedPublicKey, destName, hash});
         }
 
+        private DateTime lastSync = DateTime.MinValue;
+
         public bool SyncMessages()
         {
             if (!string.IsNullOrEmpty(this.name))
             {
+                var curTime = DateTime.Now;
+                var diff = curTime - lastSync;
+                if (diff.TotalSeconds<20)
+                {
+                    return false;
+                }
+
                 var script = NeoAPI.GenerateScript(Protocol.scriptHash, "getMailCount", new object[] { System.Text.Encoding.ASCII.GetBytes(this.name) });
                 var invoke = NeoAPI.TestInvokeScript(Protocol.net, script);
 
@@ -101,8 +110,8 @@ namespace PhantasmaMail
                 {
                     var count = new BigInteger((byte[])invoke.result);
 
-                    _messages.Clear();
-                    for (int i = 1; i<= count; i++)
+                    var oldCount = _messages.Count;
+                    for (int i = oldCount + 1; i<= count; i++)
                     {
                         var msg = FetchMessage(i);
                         if (msg != null)
@@ -111,7 +120,8 @@ namespace PhantasmaMail
                         }
                     }
 
-                    return true;
+                    lastSync = curTime;
+                    return oldCount != count;
                 }
             }
 

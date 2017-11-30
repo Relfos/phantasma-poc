@@ -45,6 +45,8 @@ namespace PhantasmaMail
         public static Message FromHash(string hash)
         {
             var xml = PhantasmaMail.Store.GetFile(hash);
+
+           
             if (xml != null)
             {
                 var root = XMLReader.ReadFromString(xml);
@@ -53,7 +55,7 @@ namespace PhantasmaMail
                 return new Mail(root);
             }
 
-            return null;
+            return null;            
         }
     }
 

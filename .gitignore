@@ -12,3 +12,5 @@ PhantasmaTests/bin/
 PhantasmaTests/obj/
 bin/
 PhantasmaGateway/obj/
+PhantasmaSite/obj/
+PhantasmaContract/obj/
