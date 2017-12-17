@@ -34,17 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LunarParser, Version=1.0.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LunarParser.1.0.17\lib\net45\LunarParser.dll</HintPath>
+    <Reference Include="LunarParser, Version=1.0.23.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LunarParser.1.0.23\lib\net45\LunarParser.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="mustache-sharp, Version=0.2.10.0, Culture=neutral, PublicKeyToken=40ca26c1e088cef4, processorArchitecture=MSIL">
-      <HintPath>..\packages\mustache-sharp.0.2.10\lib\net40\mustache-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Neo.VM, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Neo.VM.2.0.3\lib\net461\Neo.VM.dll</HintPath>
+    <Reference Include="Neo.VM, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Neo.VM.2.0.4\lib\net461\Neo.VM.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -97,8 +94,9 @@
     <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -133,20 +131,35 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="views\captcha.fnt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\C#\synk-server\SynkServer\SynkServer.csproj">
+      <Project>{15b0e423-7194-45f4-a0a0-dadef6c292a3}</Project>
+      <Name>SynkServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\neo-lux\neo-lux\neo-lux.csproj">
       <Project>{b3aaa0d3-304e-4408-a052-e3e8a8fa2006}</Project>
       <Name>neo-lux</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\synk-server\SynkServer\SynkServer.csproj">
-      <Project>{0bacf135-0285-49d5-90ee-1a4d8a46b726}</Project>
-      <Name>SynkServer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PhantasmaLib\PhantasmaLib.csproj">
-      <Project>{fdd84f5b-c07f-4cd4-acb4-b66a730db8d4}</Project>
+      <Project>{7d0b3904-11a6-446c-b684-5ee145da95b0}</Project>
       <Name>PhantasmaLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="views\captcha.html" />
+    <Content Include="views\captcha_0.png" />
+    <Content Include="views\demo.html" />
+    <Content Include="views\home.html" />
+    <Content Include="views\keys.txt" />
+    <Content Include="views\sale.html" />
+    <Content Include="views\terms.html" />
+    <Content Include="views\whitelist.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)views" "$(TargetDir)views" /Y /I /E
+XCOPY "$(ProjectDir)public" "$(TargetDir)public" /Y /I /E</PostBuildEvent>
+  </PropertyGroup>
 </Project>

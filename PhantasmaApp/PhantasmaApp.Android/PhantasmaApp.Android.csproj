@@ -136,12 +136,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\profile_generic.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\profile_generic.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\PhantasmaLib\PhantasmaLib.csproj">
-      <Project>{fdd84f5b-c07f-4cd4-acb4-b66a730db8d4}</Project>
-      <Name>PhantasmaLib</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\PhantasmaApp\PhantasmaApp.projitems" Label="Shared" Condition="Exists('..\PhantasmaApp\PhantasmaApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

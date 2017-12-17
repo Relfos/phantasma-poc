@@ -59,11 +59,5 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="G:\NEO\neo-vm\src\neo-vm\neo-vm.csproj">
-      <Project>{a1f28c55-a413-4e74-96f2-5560f6969f84}</Project>
-      <Name>neo-vm</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

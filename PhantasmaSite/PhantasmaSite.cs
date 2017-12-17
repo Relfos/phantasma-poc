@@ -18,9 +18,9 @@ using System.Text;
 using LunarParser.JSON;
 using NeoLux;
 using PhantasmaMail;
-using Mustache;
 using PhantasmaMail.Messages;
 using System.Collections.Concurrent;
+using SynkServer.Templates;
 
 namespace Phantasma
 {
@@ -123,12 +123,11 @@ namespace Phantasma
         private static void Main(string[] args)
         {
             var log = new SynkServer.Core.Logger();
-            var host = "phantasma.io";
 
             var settings = ServerSettings.Parse(args);
 
             var server = new HTTPServer(log, settings);
-            var site = new Site(server, host, "public");
+            var site = new Site(server, "public");
 
             var keys = new Dictionary<string, KeyPair>();
             var lines = File.ReadAllLines(rootPath + "keys.txt");
@@ -190,7 +189,7 @@ namespace Phantasma
 
             Console.WriteLine("Initializing server...");
 
-            var cache = new Cache(log, rootPath);
+            var cache = new FileCache(log, rootPath);
 
             Console.CancelKeyPress += delegate {
                 Console.WriteLine("Closing service.");
@@ -198,8 +197,7 @@ namespace Phantasma
                 Environment.Exit(0);
             };
 
-            var compiler = new FormatCompiler();
-            var templateEngine = new TemplateEngine(compiler);
+            var templateEngine = new TemplateEngine("views");
 
             site.Get("/", (request) =>
             {
